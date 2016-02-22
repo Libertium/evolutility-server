@@ -14,12 +14,25 @@ var uims={
         'contact': require('../../client/public/ui-models/contacts.js'),
         'winecellar': require('../../client/public/ui-models/winecellar.js'),
         'comics': require('../../client/public/ui-models/comics.js'),
+        'testCesc': require('../../client/public/ui-models/testCesc.js'),
         //'test': require('../../client/public/ui-models/test.js')
     },
     uim=null,
     tableName=null;
 
 var fCache = {};
+
+function submit(){
+  $scope.list = [];
+      console.log('Cesc function submit');
+      $scope.text = 'hello';  
+      $scope.submit = function() {
+        if ($scope.text) {
+          $scope.list.push(this.text);
+          $scope.text = '';
+        }
+      };
+}
 
 function getFields(uiModel, asObject){
     var fs=asObject?{}:[];

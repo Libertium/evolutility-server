@@ -15,12 +15,12 @@
     <script src="dist/dependencies.min.js" type="text/javascript"></script>
     <script src="dist/evolutility.js" type="text/javascript"></script>
 
-    <script src="ui-models/contacts.js" type="text/javascript"></script>
-    <script src="ui-models/todo.js" type="text/javascript"></script>
-    <script src="ui-models/winecellar.js" type="text/javascript"></script>
-    <script src="ui-models/comics.js" type="text/javascript"></script>
+    <script src="ui-models/apps/contacts.js" type="text/javascript"></script>
+    <script src="ui-models/apps/todo.js" type="text/javascript"></script>
+    <script src="ui-models/apps/winecellar.js" type="text/javascript"></script>
+    <script src="ui-models/apps/comics.js" type="text/javascript"></script>
 
-    <title id="headTitle">Evolutility</title>
+    <title id="headTitle">Evolutility HTML</title>
 </head>
 
 <body>
@@ -28,16 +28,19 @@
 <div class="evo-header">
     <div class="evo-logo"><a href="#"><span>evol</span>utility<span>.js</span></a></div>
     <ul class="evo-head-links">
-        <li><a href="#" class="sel">demos</a></li>
+        <li><a href="#" class="sel">Modules</a></li>
         <li class="evo-link2">
             <ul class="evo-head-links2">
                 <li><a href="#todo" data-id="todo">todo</a></li>
                 <li><a href="#contact" data-id="contact">addressbook</a></li>
                 <li><a href="#winecellar" data-id="winecellar">wine cellar</a></li>
                 <li><a href="#comics/cards" data-id="comics">graphic novels</a></li>
+                <li><a href="#testCesc" data-id="testCesc">testCesc</a></li>
             </ul>
         </li>
+        <!--
         <li class="spaced"><a href="https://github.com/evoluteur/evolutility-server" target="_new">GitHub</a></li>
+	-->
     </ul>
     <div class="clearfix"></div>
 </div>
@@ -62,14 +65,76 @@
                 <div><a href="#contact" data-id="contact"><img src="pix/contact.gif" class="evo-icon-16">AddressBook</a></div>
                 <div><a href="#winecellar" data-id="wine"><img src="pix/wine.gif" class="evo-icon-16">Wine cellar</a></div>
                 <div><a href="#comics/cards" data-id="comics"><img src="pix/comics.png" class="evo-icon-16">Graphic novels</a></div>
+                <div><a href="#testCesc" data-id="testCesc"><img src="pix/cube.gif" class="evo-icon-16">TestCesc</a></div>
             </div> 
- 
+
+           <!--
+            <h2> Register <h2>
+              <form method="POST" action="/#contact/list" class="registerForm">
+                  <input type="text" name="fullName" id="fullName" class="input-lg " placeholder="your full name" data-required="true">
+                  <input type="text" name="age" id="age" class="input-lg" placeholder="age">
+                  <input type="text" name="city" id="city" class="input-lg" placeholder="Your City">
+                  <input type="text" name="job" class="input-lg" placeholder="Your Job">
+                  <input type="text" name="username" class="input-lg " placeholder="prefered username" data-required="true">
+                  <input type="password" name="password" class="input-lg" placeholder="Password">
+                  <input type="email" name="email" class="input-lg " placeholder="your email" data-required="true">
+                  <button type="submit" class="btn btn-primary registerButton">Sign in</button>
+              </form>
+
+              <h2>Login! </h2>
+                  <form method="POST" action="/#testCesc/list" class="loginForm">
+                  <hr class="colorgraph">
+                  <input type="email" name="emaillog" class="input-lg " placeholder="your email" data-required="true">
+                  <input type="password" name="passwordlog" class="input-lg" placeholder="Password">
+                  <button type="submit" class="btn btn-primary loginButton">Log in</button>
+
+              </form>
+              <script>
+                  $('button.registerButton').click( function() {
+                    $('form.registerForm').submit();
+                  });
+                  $('button.loginButton').click( function() {
+                    $('form.loginForm').submit();
+                  });
+              </script>
+            --> 
+
           </div>
     </div>
 
     <div class="clearfix"></div>
 
 </div>
+
+<!--
+<div class="container">
+  <div class="btn-toolbar">
+    <button type="button" class="btn btn-default" ng-disabled="FM.btnDisabled('download')" ng-click="FM.download()"><span class="glyphicon glyphicon-download"></span> Download</button>
+    <button type="button" class="btn btn-default" ng-disabled="FM.btnDisabled('delete')" ng-click="FM.delete()"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+    <button type="button" class="btn btn-default" ng-disabled="FM.btnDisabled('move')" data-toggle="modal" data-target="#moveModal"><span class="glyphicon glyphicon-random"></span> Move</button>
+    <button type="button" class="btn btn-default" ng-disabled="FM.btnDisabled('rename')" data-toggle="modal" data-target="#renameModal"><span class="glyphicon glyphicon-font"></span> Rename</button>
+    <button type="button" class="btn btn-default pull-right" ng-disabled="FM.btnDisabled('create_folder')" data-toggle="modal" data-target="#createFolderModal"><span class="glyphicon glyphicon-plus-sign"></span> New Folder</button>
+    <button type="button" class="btn btn-default pull-right" ng-disabled="FM.btnDisabled('upload_file')" data-toggle="modal" data-target="#uploadFileModal"><span class="glyphicon glyphicon-upload"></span> Upload</button>
+  </div>
+-->
+
+<!--
+<div class="evo-content2">
+    <h1 id="title">Form</h1>
+    <form method="post" enctype="multipart/form-data" action="/file-upload">
+        <p>User
+          <input type="text" name="username">
+        </p>
+        <p>Password
+          <input type="password" name="password">
+        </p>
+        <p>Thumbnail file
+          <input type="file" name="thumbnail">
+        </p>
+        <input type="submit">
+    </form>
+</div>
+-->
 
 <script>
 
@@ -87,7 +152,8 @@
                 uiModels.todo,
                 uiModels.contact,
                 uiModels.winecellar,
-                uiModels.comics
+                uiModels.comics,
+                uiModels.testCesc
             ],
             style: 'panel-info',
             pageSize: 20

@@ -11,13 +11,15 @@ var uims = {
     'contact': require('../../client/public/ui-models/contacts.js'),
     'winecellar': require('../../client/public/ui-models/winecellar.js'),
     'comics': require('../../client/public/ui-models/comics.js'),
+    'testCesc': require('../../client/public/ui-models/testCesc.js')
     //'test': require('../../client/public/ui-models/test.js'),
 };
 var uims_data = {
     'todo': require('../../client/public/ui-models/todo.data.js'),
     'contact': require('../../client/public/ui-models/contacts.data.js'),
     'winecellar': require('../../client/public/ui-models/winecellar.data.js'),
-    'comics': require('../../client/public/ui-models/comics.data.js')
+    'comics': require('../../client/public/ui-models/comics.data.js'),
+    'testCesc_data': require('../../client/public/ui-models/testCesc.data.js')
 };
 
 var connectionString = require(path.join(__dirname, '../', '../', 'config'));
@@ -89,6 +91,7 @@ function uim2db(uimid){
     });
 
     //sql = 'CREATE SCHEMA "evol_demo" AUTHORIZATION evol;\n';
+    //sql = 'DROP TABLE '+t+';\n'
     sql = 'CREATE TABLE '+t+'(\n' + fs.join(',\n') + ');\n';
 
     // -- insert sample data
@@ -114,6 +117,7 @@ function uim2db(uimid){
 
 var sql='';
 if(schema){
+    sql='DROP SCHEMA IF EXISTS '+schema+' CASCADE;\n'+
     sql='CREATE SCHEMA '+schema+' AUTHORIZATION '+dbuser+';\n';
 }
 for(var uimid in uims){
