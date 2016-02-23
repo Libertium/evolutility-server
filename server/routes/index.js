@@ -25,7 +25,7 @@ var fCache = {};
 function submit(){
   $scope.list = [];
       console.log('Cesc function submit');
-      $scope.text = 'hello';  
+      $scope.text = 'hello';
       $scope.submit = function() {
         if ($scope.text) {
           $scope.list.push(this.text);
@@ -94,11 +94,13 @@ router.get(apiPath+':objectId', function(req, res) {
     loadUIModel(uimid);
     logObject('GET MANY', req);
 
-    // Get a Postgres client from the connection pool 
+    // Get a Postgres client from the connection pool
     pg.connect(connectionString, function(err, client, done) {
 
+       console.log("CESC:"+ tableName);
         // SQL Query > Select Data
         var sql='SELECT * FROM '+tableName+' ORDER BY id ASC;';
+        //var sql=' SELECT * FROM evol_demo.testCesc ORDER BY id ASC;';
         logSQL(sql);
         var query = client.query(sql);
 
@@ -127,7 +129,7 @@ router.get(apiPath+':objectId', function(req, res) {
 router.get(apiPath+':objectId/:id', function(req, res) {
     var result;
 
-    // Get a Postgres client from the connection pool 
+    // Get a Postgres client from the connection pool
     pg.connect(connectionString, function(err, client, done) {
         var uimid = req.params.objectId;
         var id = req.params.id;
@@ -246,7 +248,7 @@ var _update=function(req, res) {
     var results = [];
     var mid = req.params.objectId;
     //var id=req.body.id;
-    var id = req.params.id; 
+    var id = req.params.id;
     loadUIModel(mid);
     logObject('UPDATE ONE', req);
 
